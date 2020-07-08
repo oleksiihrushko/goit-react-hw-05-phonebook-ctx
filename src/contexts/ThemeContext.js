@@ -21,20 +21,12 @@ export default class ThemeContext extends Component {
   themeToggle = () => {
     this.setState(prevState => {
       if (prevState.theme === 'light') {
-        return { theme: 'dark' };
+        return { theme: 'dark', themeCfg: themeConfig.dark };
       } else {
-        return { theme: 'light' };
+        return { theme: 'light', themeCfg: themeConfig.light };
       }
     });
   };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.theme !== this.state.theme) {
-      prevState.theme === 'light'
-        ? this.setState({ themeCfg: themeConfig.light })
-        : this.setState({ themeCfg: themeConfig.dark });
-    }
-  }
 
   state = {
     theme: 'light',
